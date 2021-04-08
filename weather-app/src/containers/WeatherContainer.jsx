@@ -6,7 +6,7 @@ import DetailWeather from '../components/DetailWeather';
 const WeatherContainer = () => {
 
     const defaultDetail = () => {
-        fetch("http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&units=metric&APPID=d6658dd5db67704d22a774f0de80371a")
+        fetch("http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&units=metric&APPID=492e9731fb51080bc24e024ff9256943")
         .then(response => response.json())
         .then(item => { 
             
@@ -17,7 +17,7 @@ const WeatherContainer = () => {
      }
 
      const defaultOverview = () => {
-        fetch("http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&units=metric&APPID=d6658dd5db67704d22a774f0de80371a")
+        fetch("http://api.openweathermap.org/data/2.5/forecast?q=Stockholm&units=metric&APPID=492e9731fb51080bc24e024ff9256943")
         .then(response => response.json())
         .then(item => { 
             
@@ -44,16 +44,20 @@ const WeatherContainer = () => {
 
 
     const search = (searchVal) => {
-        const url = "http://api.openweathermap.org/data/2.5/forecast?q="+searchVal+"&units=metric&APPID=d6658dd5db67704d22a774f0de80371a";
+        const url = "http://api.openweathermap.org/data/2.5/forecast?q="+searchVal+"&units=metric&APPID=492e9731fb51080bc24e024ff9256943";
         GetData(url);
      }   
 
 function GetData(url) {
 
-    fetch(url)
-    .then(response => response.json())
-    .then(item => { 
-        
+    fetch(url).then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('No actual city entered');
+        }
+      })
+      .then((item) => {
         var currentDay = item.list[0];
         var details = {city:item.city, currentDay:item.list[0]};
 
@@ -64,7 +68,10 @@ function GetData(url) {
 
         setDetailData(details);
         setOverviewData(comingDays);
-    });
+      })
+      .catch((error) => {
+        console.log(error)
+      });
  }
 
 

@@ -58,7 +58,7 @@
   background:rgba(255, 255, 255, 1);
   padding: 20px;
   width: 40%;
-  margin-top: 100px;
+  margin-top: 2%;
   margin-left: 30%;
   outline: none;
   border: none;
@@ -82,21 +82,20 @@
   background:rgba(255, 255, 255, 0.2);
   padding: 20px;
   width: 60%;
-  height: 45%;
-  margin-top: 60px;
+  height: 50%;
+  margin-top: 3%;
   margin-left: 20%;
   box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.5);
   text-align: center;
   overflow: auto;
 }
 
-.detainImg {
-  text-align: right;
-margin-left: 50%;
+.detailImg {
+  text-align: center;
 }
 .detailInfo {
   text-align: center;
-  margin-right: 0%;
+  margin-top: -5%;
 }
 
 .overviewDiv {
@@ -119,7 +118,6 @@ margin-left: 50%;
 }
 
 .bigImg {
-  margin-top: 10%;
   width: 300px;
   height: 300px;
 }
@@ -146,5 +144,5 @@ h4 {
 
 p{
   font-size: 20px;
-  margin-top: -0%;
+  margin-top: -5%;
 }
